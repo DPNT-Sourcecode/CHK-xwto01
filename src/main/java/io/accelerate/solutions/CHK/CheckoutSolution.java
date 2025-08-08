@@ -7,25 +7,20 @@ import java.util.*;
 public class CheckoutSolution {
 
     public static void main(String[] args){
-        System.out.println(checkout("FFFFFF"));
+        System.out.println(checkout("AAABB"));
     }
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
         int total = 0 ,index , discount = 0;
-        int[] values = new int[]{50,30,20,15,40,10}, hash = new int[6] ;
+        int[] values = new int[]{50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50}, hash = new int[26] ;
         int[][] tempLs;
-        List<int[][]> deals = new ArrayList<>();
-        deals.add(new int[][]{{3,20} , {5,50}});
-        deals.add(new int[][]{{2,15}});
-        deals.add(new int[][]{{0,0}});
-        deals.add(new int[][]{{0,0}});
-        deals.add(new int[][]{{0,0}});
-        deals.add(new int[][]{{0,0}});
-
+        Map<Integer,int[][]> deals = new HashMap<>();
+        deals.put((int) 'A' - 'A',new int[][]{{3,20} , {5,50}});
+        deals.put((int) 'B' - 'A',new int[][]{{2,15}});
 
         for(char x : str){
             index = x - 'A';
-            if(index > 5 || index < 0 ){
+            if(index > 25 || index < 0 ){
                 return -1;
             }
             hash[index]++;
@@ -37,8 +32,6 @@ public class CheckoutSolution {
         }
 
         for(int i = hash.length - 1; i >= 0 ; i--){
-            tempLs = deals.get(i);
-
 
             if(i == 4){
                 int mul = hash[4] / 2;
@@ -57,9 +50,11 @@ public class CheckoutSolution {
             }
 
 
-            if(tempLs[0][0] == 0){
+            if(!deals.containsKey(i)){
                 continue;
             }
+
+            tempLs = deals.get(i);
 
             for(int j = tempLs.length -1 ; j >= 0; j -- ){
                 int mul = hash[i] / tempLs[j][0];
@@ -74,5 +69,6 @@ public class CheckoutSolution {
 
 
 }
+
 
 
