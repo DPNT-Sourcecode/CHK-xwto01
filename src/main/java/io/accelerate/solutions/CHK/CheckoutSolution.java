@@ -69,7 +69,7 @@ public class CheckoutSolution {
             }
 
             if(i == 20){
-                int mul = hash[20] / 3;
+                int mul = hash[20] / 4;
                 discount += mul * values[20] ;
                 hash[20] -= mul;
                 continue;
@@ -96,5 +96,6 @@ public class CheckoutSolution {
 
 
 }
+
 
 
