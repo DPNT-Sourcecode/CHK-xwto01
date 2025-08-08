@@ -7,12 +7,12 @@ import java.util.*;
 public class CheckoutSolution {
 
     public static void main(String[] args){
-        System.out.println(checkout("EEEBB"));
+        System.out.println(checkout("FFFF"));
     }
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
         int total = 0 ,index , discount = 0;
-        int[] values = new int[]{50,30,20,15,40}, hash = new int[5] ;
+        int[] values = new int[]{50,30,20,15,40,10}, hash = new int[6] ;
         int[][] tempLs;
         List<int[][]> deals = new ArrayList<>();
         deals.add(new int[][]{{3,20} , {5,50}});
@@ -20,10 +20,12 @@ public class CheckoutSolution {
         deals.add(new int[][]{{0,0}});
         deals.add(new int[][]{{0,0}});
         deals.add(new int[][]{{0,0}});
+        deals.add(new int[][]{{0,0}});
+
 
         for(char x : str){
             index = x - 'A';
-            if(index > 4 || index < 0 ){
+            if(index > 5 || index < 0 ){
                 return -1;
             }
             hash[index]++;
@@ -36,6 +38,8 @@ public class CheckoutSolution {
 
         for(int i = hash.length - 1; i >= 0 ; i--){
             tempLs = deals.get(i);
+
+
             if(i == 4){
                 int mul = hash[4] / 2;
                 System.out.println(Arrays.toString(hash));
@@ -44,6 +48,14 @@ public class CheckoutSolution {
                 hash[1] = num;
                 continue;
             }
+
+            if(i == 5){
+                int mul = hash[5] / 3;
+                discount += mul * values[5] ;
+                hash[5] -= mul;
+                continue;
+            }
+
 
             if(tempLs[0][0] == 0){
                 continue;
@@ -62,3 +74,4 @@ public class CheckoutSolution {
 
 
 }
+
