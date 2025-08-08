@@ -16,9 +16,9 @@ public class CheckoutSolution {
         List<int[][]> deals = new ArrayList<>();
         deals.add(new int[][]{{3,20} , {5,30}});
         deals.add(new int[][]{{2,15}});
-        deals.add(new int[][]{{}});
-        deals.add(new int[][]{{}});
-        deals.add(new int[][]{{}});
+        deals.add(new int[][]{{0,0}});
+        deals.add(new int[][]{{0,0}});
+        deals.add(new int[][]{{0,0}});
 
         for(char x : str){
             index = x - 'A';
@@ -38,6 +38,7 @@ public class CheckoutSolution {
             for(int i = tempLs.length - 1; i >= 0 ; i--){
                 if(hash[index] % tempLs[i][0] == 0){
                     total -= tempLs[i][1];
+                    break;
                 }
             }
 
@@ -46,5 +47,8 @@ public class CheckoutSolution {
 
         return total;
     }
+
+
 }
+
 
