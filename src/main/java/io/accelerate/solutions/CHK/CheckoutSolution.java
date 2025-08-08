@@ -37,15 +37,22 @@ public class CheckoutSolution {
 
         for(int i = 0 ; i < hash.length ; i++){
             tempLs = deals.get(i);
-
-            for(int j = 0 ; j < tempLs.length )
+            if(tempLs[0][0] == 0){
+                continue;
+            }
+            for(int j = tempLs.length -1 ; j >= 0; j -- ){
+                int mul = hash[i] / tempLs[j][0];
+                discount += mul * tempLs[j][1];
+                hash[i] -= mul*tempLs[j][0];
+            }
         }
 
 
-        return total;
+        return total - discount;
     }
 
 
 }
+
 
 
