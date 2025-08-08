@@ -36,7 +36,7 @@ public class CheckoutSolution {
             }
 
             for(int i = tempLs.length - 1; i >= 0 ; i--){
-                if(hash[index] % tempLs[i][0] == 0){
+                if(tempLs[i][0] != 0 && hash[index] % tempLs[i][0] == 0){
                     total -= tempLs[i][1];
                     break;
                 }
@@ -50,5 +50,6 @@ public class CheckoutSolution {
 
 
 }
+
 
 
