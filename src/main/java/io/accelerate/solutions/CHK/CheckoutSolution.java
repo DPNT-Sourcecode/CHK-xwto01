@@ -4,6 +4,16 @@ import io.accelerate.runner.SolutionNotImplementedException;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        throw new SolutionNotImplementedException();
+        char[] str = skus.toCharArray() , hash = new char[26];
+        int total = 0;
+
+        for(char x : str){
+            hash[ x - 'A']++;
+
+        }
+
+
+
     }
 }
+
