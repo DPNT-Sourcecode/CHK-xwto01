@@ -99,13 +99,14 @@ public class CheckoutSolution {
             count += hash[id];
         }
 
-        System.out.println(specialTotal);
-        System.out.println(total);
-
         total -= specialTotal;
 
         int groups = count / 3;
         int remain = count % 3;
+
+        System.out.println(groups);
+        System.out.println(remain);
+
 
         total+= groups * 45;
 
@@ -128,6 +129,7 @@ public class CheckoutSolution {
 
 
 }
+
 
 
 
