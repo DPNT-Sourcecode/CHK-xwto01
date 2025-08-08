@@ -11,10 +11,11 @@ public class CheckoutSolution {
     }
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
-        int total = 0 ,index , discount = 0;
-        int[] values = new int[]{50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50},
-                hash = new int[26] ;
-        int[][] tempLs;
+        int total = 0 ,index , discount = 0 , count = 0 , specialTotal= 0;
+        int[] values = new int[]{50,30,20,15,40,10,20,10,35,60,70,90,15,40,10,50,30,50,20,20,40,50,20,17,20,21},
+                hash = new int[26],
+                specialHash = new int[]{'Z','Y','T','S','X'};
+        int[][] tempLs ;
         Map<Integer,int[][]> deals = new HashMap<>();
         deals.put((int) 'A' - 'A',new int[][]{{3,20} , {5,50}});
         deals.put((int) 'B' - 'A',new int[][]{{2,15}});
@@ -34,6 +35,8 @@ public class CheckoutSolution {
             total += values[index];
 
         }
+
+
 
         for(int i = hash.length - 1; i >= 0 ; i--){
 
@@ -90,9 +93,22 @@ public class CheckoutSolution {
             }
         }
 
+        for(int n = 0 ; n < specialHash.length; n++ ){
+            int id = specialHash[n] - 'A';
+            specialTotal += values[id];
+            count += hash[id];
+        }
+
+        while(count > 0){
+
+        }
+
+
+
 
         return total - discount;
     }
 
 
 }
+
