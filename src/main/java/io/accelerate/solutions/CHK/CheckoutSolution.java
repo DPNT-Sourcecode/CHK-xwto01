@@ -39,7 +39,6 @@ public class CheckoutSolution {
 
             if(i == 4){
                 int mul = hash[4] / 2;
-                System.out.println(Arrays.toString(hash));
                 int num = Math.max(hash[1] - mul, 0);
                 discount += (hash[1] - num) * values[1] ;
                 hash[1] = num;
@@ -71,9 +70,8 @@ public class CheckoutSolution {
 
             if(i == 20){
                 int mul = hash[20] / 3;
-                int num = Math.max(hash[19] - mul, 0);
-                discount += (hash[19] - num) * values[19] ;
-                hash[19] = num;
+                discount += mul * values[20] ;
+                hash[20] -= mul;
                 continue;
             }
 
@@ -98,4 +96,5 @@ public class CheckoutSolution {
 
 
 }
+
 
