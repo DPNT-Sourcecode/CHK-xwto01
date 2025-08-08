@@ -14,7 +14,7 @@ public class CheckoutSolution {
         int[] values = new int[]{50,30,20,15,40} ;
         int[][] tempLs;
         List<int[][]> deals = new ArrayList<>();
-        deals.add(new int[][]{{3,20} , {5,30}});
+        deals.add(new int[][]{{3,20} , {5,50}});
         deals.add(new int[][]{{2,15}});
         deals.add(new int[][]{{0,0}});
         deals.add(new int[][]{{0,0}});
@@ -38,6 +38,10 @@ public class CheckoutSolution {
             for(int i = tempLs.length - 1; i >= 0 ; i--){
                 if(tempLs[i][0] != 0 && hash[index] % tempLs[i][0] == 0){
                     total -= tempLs[i][1];
+
+                    for(int j = 0; j < i ; j++){
+                        total += tempLs[j][1];
+                    }
                     break;
                 }
             }
@@ -50,3 +54,4 @@ public class CheckoutSolution {
 
 
 }
+
