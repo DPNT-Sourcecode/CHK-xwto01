@@ -7,7 +7,7 @@ import java.util.*;
 public class CheckoutSolution {
 
     public static void main(String[] args){
-        System.out.println(checkout("EEBB"));
+        System.out.println(checkout("BB"));
     }
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
@@ -34,12 +34,14 @@ public class CheckoutSolution {
 
         }
 
-        for(int i = 0 ; i < hash.length ; i++){
+        for(int i = hash.length - 1; i >= 0 ; i--){
             tempLs = deals.get(i);
             if(i == 4){
                 int mul = hash[4] / 2;
                 System.out.println(Arrays.toString(hash));
-                discount += (hash[1] - Math.max(hash[1] - mul, 0)) * values[1] ;
+                int num = Math.max(hash[1] - mul, 0);
+                discount += (hash[1] - num) * values[1] ;
+                hash[1] = num;
                 continue;
             }
 
@@ -60,4 +62,5 @@ public class CheckoutSolution {
 
 
 }
+
 
