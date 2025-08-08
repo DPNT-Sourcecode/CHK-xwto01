@@ -12,7 +12,8 @@ public class CheckoutSolution {
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
         int total = 0 ,index , discount = 0;
-        int[] values = new int[]{50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50}, hash = new int[26] ;
+        int[] values = new int[]{50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50},
+                hash = new int[26] ;
         int[][] tempLs;
         Map<Integer,int[][]> deals = new HashMap<>();
         deals.put((int) 'A' - 'A',new int[][]{{3,20} , {5,50}});
@@ -26,8 +27,6 @@ public class CheckoutSolution {
             hash[index]++;
 
             total += values[index];
-
-
 
         }
 
@@ -69,6 +68,7 @@ public class CheckoutSolution {
 
 
 }
+
 
 
 
