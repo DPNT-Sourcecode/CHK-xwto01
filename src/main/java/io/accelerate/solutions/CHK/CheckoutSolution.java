@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        char[] str = skus.toCharArray() , hash = new char[5];
-        int total = 0 ,index;
-        int[] values = new int[]{50,30,20,15,40} ;
+        char[] str = skus.toCharArray() ;
+        int total = 0 ,index , discount = 0;
+        int[] values = new int[]{50,30,20,15,40}, hash = new int[5] ;
         int[][] tempLs;
         List<int[][]> deals = new ArrayList<>();
         deals.add(new int[][]{{3,20} , {5,50}});
@@ -29,23 +29,16 @@ public class CheckoutSolution {
 
             total += values[index];
 
-            tempLs = deals.get(index);
-
             if(index == 4 && hash[index] % 2 == 0){
                 hash[1]++;
             }
 
-            for(int i = tempLs.length - 1; i >= 0 ; i--){
-                if(tempLs[i][0] != 0 && hash[index] % tempLs[i][0] == 0){
-                    total -= tempLs[i][1];
+        }
 
-                    for(int j = 0; j < i ; j++){
-                        total += tempLs[j][1];
-                    }
-                    break;
-                }
-            }
+        for(int i = 0 ; i < hash.length ; i++){
+            tempLs = deals.get(i);
 
+            for(int j = 0 ; j < tempLs.length )
         }
 
 
@@ -54,4 +47,5 @@ public class CheckoutSolution {
 
 
 }
+
 
