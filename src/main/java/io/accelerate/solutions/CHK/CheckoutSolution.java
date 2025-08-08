@@ -7,7 +7,7 @@ import java.util.*;
 public class CheckoutSolution {
 
     public static void main(String[] args){
-        System.out.println(checkout("XYZ"));
+        System.out.println(checkout("XYZAAA"));
     }
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
@@ -133,6 +133,7 @@ public class CheckoutSolution {
 
 
 }
+
 
 
 
