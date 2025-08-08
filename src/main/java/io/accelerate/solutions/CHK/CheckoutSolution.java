@@ -2,13 +2,11 @@ package io.accelerate.solutions.CHK;
 
 import io.accelerate.runner.SolutionNotImplementedException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CheckoutSolution {
-    public Integer checkout(String skus) {
+
+    public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
         int total = 0 ,index , discount = 0;
         int[] values = new int[]{50,30,20,15,40}, hash = new int[5] ;
@@ -29,19 +27,19 @@ public class CheckoutSolution {
 
             total += values[index];
 
-
         }
 
-        for(int i = 0 ; i < hash.length ; i++){
+        for(int i =  hash.length-1; i >= 0 ; i--){
             tempLs = deals.get(i);
-            if(tempLs[0][0] == 0){
+            if(i == 4){
+                int mul = hash[4] / 2;
+                int num = Math.max(hash[1] - mul, 0);
+                discount += (hash[1] - num) * values[1] ;
+                hash[1] -= num;
                 continue;
             }
 
-            if(i == 4){
-                int mul = hash[4] / 2;
-                hash[1] -= mul;
-                discount += (hash[1] - Math.max(hash[1] - mul, 0)) * values[1] ;
+            if(tempLs[0][0] == 0){
                 continue;
             }
 
@@ -58,4 +56,3 @@ public class CheckoutSolution {
 
 
 }
-
