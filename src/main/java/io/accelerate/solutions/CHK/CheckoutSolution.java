@@ -11,7 +11,7 @@ public class CheckoutSolution {
     }
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
-        int total = 0 ,index , discount = 0 , count = 0 , specialTotal= 0, point =0;
+        int total = 0 ,index , discount = 0 , count = 0 , specialTotal= 0, point =4;
         int[] values = new int[]{50,30,20,15,40,10,20,10,35,60,70,90,15,40,10,50,30,50,20,20,40,50,20,17,20,21},
                 hash = new int[26],
                 specialHash = new int[]{'Z','Y','T','S','X'};
@@ -104,19 +104,23 @@ public class CheckoutSolution {
         int groups = count / 3;
         int remain = count % 3;
 
-        System.out.println(groups);
-        System.out.println(remain);
 
 
         total+= groups * 45;
 
         while(remain > 0){
             if(specialHash[point] == 0){
-                point++;
+                point--;
+
             }
+
+
 
             specialHash[point]--;
             total+= values[specialHash[point] - 'A'];
+
+            System.out.println(specialHash[point]);
+
 
             remain--;
         }
@@ -129,6 +133,7 @@ public class CheckoutSolution {
 
 
 }
+
 
 
 
