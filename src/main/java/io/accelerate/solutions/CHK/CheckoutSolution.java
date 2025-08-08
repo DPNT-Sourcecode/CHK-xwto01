@@ -6,6 +6,9 @@ import java.util.*;
 
 public class CheckoutSolution {
 
+    public static void main(String[] args){
+        System.out.println(checkout("EEBB"));
+    }
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
         int total = 0 ,index , discount = 0;
@@ -27,15 +30,16 @@ public class CheckoutSolution {
 
             total += values[index];
 
+
+
         }
 
-        for(int i =  hash.length-1; i >= 0 ; i--){
+        for(int i = 0 ; i < hash.length ; i++){
             tempLs = deals.get(i);
             if(i == 4){
                 int mul = hash[4] / 2;
-                int num = Math.max(hash[1] - mul, 0);
-                discount += (hash[1] - num) * values[1] ;
-                hash[1] -= num;
+                System.out.println(Arrays.toString(hash));
+                discount += (hash[1] - Math.max(hash[1] - mul, 0)) * values[1] ;
                 continue;
             }
 
@@ -56,3 +60,4 @@ public class CheckoutSolution {
 
 
 }
+
