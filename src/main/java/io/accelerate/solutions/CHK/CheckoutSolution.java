@@ -7,11 +7,11 @@ import java.util.*;
 public class CheckoutSolution {
 
     public static void main(String[] args){
-        System.out.println(checkout("AAABB"));
+        System.out.println(checkout("XYZ"));
     }
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
-        int total = 0 ,index , discount = 0 , count = 0 , specialTotal= 0, point ;
+        int total = 0 ,index , discount = 0 , count = 0 , specialTotal= 0, point =0;
         int[] values = new int[]{50,30,20,15,40,10,20,10,35,60,70,90,15,40,10,50,30,50,20,20,40,50,20,17,20,21},
                 hash = new int[26],
                 specialHash = new int[]{'Z','Y','T','S','X'};
@@ -99,10 +99,23 @@ public class CheckoutSolution {
             count += hash[id];
         }
 
+        total -= specialTotal;
+
         int groups = count / 3;
         int remain = count % 3;
 
-        while(remain)
+        total+= groups * 45;
+
+        while(remain > 0){
+            if(specialHash[point] == 0){
+                point++;
+            }
+
+            specialHash[point]--;
+            total+= values[specialHash[point] - 'A'];
+
+            remain--;
+        }
 
 
 
@@ -112,4 +125,5 @@ public class CheckoutSolution {
 
 
 }
+
 
