@@ -7,7 +7,7 @@ import java.util.*;
 public class CheckoutSolution {
 
     public static void main(String[] args){
-        System.out.println(checkout("XYZ"));
+        System.out.println(checkout("XYZZ"));
     }
     public static Integer checkout(String skus) {
         char[] str = skus.toCharArray() ;
@@ -95,9 +95,12 @@ public class CheckoutSolution {
 
         for(int n = 0 ; n < specialHash.length; n++ ){
             int id = specialHash[n] - 'A';
-            specialTotal += values[id];
+            specialTotal += hash[id] *values[id];
             count += hash[id];
         }
+
+        System.out.println(specialTotal);
+        System.out.println(total);
 
         total -= specialTotal;
 
@@ -125,5 +128,6 @@ public class CheckoutSolution {
 
 
 }
+
 
 
