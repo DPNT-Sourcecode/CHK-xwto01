@@ -29,9 +29,6 @@ public class CheckoutSolution {
 
             total += values[index];
 
-            if(index == 4 && hash[index] % 2 == 0){
-                hash[1]++;
-            }
 
         }
 
@@ -40,6 +37,14 @@ public class CheckoutSolution {
             if(tempLs[0][0] == 0){
                 continue;
             }
+
+            if(i == 4){
+                int mul = hash[4] / 2;
+                hash[1] -= mul;
+                discount += (hash[1] - Math.max(hash[1] - mul, 0)) * values[1] ;
+                continue;
+            }
+
             for(int j = tempLs.length -1 ; j >= 0; j -- ){
                 int mul = hash[i] / tempLs[j][0];
                 discount += mul * tempLs[j][1];
@@ -53,3 +58,4 @@ public class CheckoutSolution {
 
 
 }
+
