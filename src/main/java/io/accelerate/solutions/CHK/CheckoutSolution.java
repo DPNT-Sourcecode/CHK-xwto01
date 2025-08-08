@@ -18,6 +18,11 @@ public class CheckoutSolution {
         Map<Integer,int[][]> deals = new HashMap<>();
         deals.put((int) 'A' - 'A',new int[][]{{3,20} , {5,50}});
         deals.put((int) 'B' - 'A',new int[][]{{2,15}});
+        deals.put((int) 'H' - 'A',new int[][]{{5,5},{10,20}});
+        deals.put((int) 'K' - 'A',new int[][]{{2,10}});
+        deals.put((int) 'P' - 'A',new int[][]{{5,50}});
+        deals.put((int) 'Q' - 'A',new int[][]{{3,10}});
+        deals.put((int) 'V' - 'A',new int[][]{{2,10}, {3,20}});
 
         for(char x : str){
             index = x - 'A';
@@ -48,6 +53,31 @@ public class CheckoutSolution {
                 continue;
             }
 
+            if(i == 13){
+                int mul = hash[13] / 3;
+                int num = Math.max(hash[12] - mul, 0);
+                discount += (hash[12] - num) * values[12] ;
+                hash[12] = num;
+                continue;
+            }
+
+            if(i == 17){
+                int mul = hash[17] / 3;
+                int num = Math.max(hash[16] - mul, 0);
+                discount += (hash[16] - num) * values[16] ;
+                hash[16] = num;
+                continue;
+            }
+
+            if(i == 20){
+                int mul = hash[20] / 3;
+                int num = Math.max(hash[19] - mul, 0);
+                discount += (hash[19] - num) * values[19] ;
+                hash[19] = num;
+                continue;
+            }
+
+
 
             if(!deals.containsKey(i)){
                 continue;
@@ -68,3 +98,4 @@ public class CheckoutSolution {
 
 
 }
+
