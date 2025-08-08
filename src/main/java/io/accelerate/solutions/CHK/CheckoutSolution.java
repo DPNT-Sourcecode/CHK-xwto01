@@ -114,12 +114,12 @@ public class CheckoutSolution {
 
             }
 
+            System.out.println(specialHash[point]);
 
 
             specialHash[point]--;
             total+= values[specialHash[point] - 'A'];
 
-            System.out.println(specialHash[point]);
 
 
             remain--;
@@ -133,11 +133,3 @@ public class CheckoutSolution {
 
 
 }
-
-
-
-
-
-
-
-
